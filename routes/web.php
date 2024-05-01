@@ -19,11 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/home', [HomeController::class,'index']);
+Route::get('/home', [HomeController::class,'index'])->middleware('auth')->name('home');
+
+
+// Pour vérifier que c'est seulement l'admin qui peut accéder à la page spécifiée
+// Route::get('/post', [HomeController::class,'index1'])->middleware(['auth', 'admin']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
