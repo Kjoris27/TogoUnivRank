@@ -27,7 +27,7 @@ Route::get('/home', [HomeController::class,'index'])->middleware('auth')->name('
 
 
 // Pour vérifier que c'est seulement l'admin qui peut accéder à la page spécifiée
-// Route::get('/post', [HomeController::class,'index1'])->middleware(['auth', 'admin']);
+Route::get('/post', [HomeController::class,'index1'])->middleware(['auth', 'admin']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

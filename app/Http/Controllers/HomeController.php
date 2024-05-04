@@ -29,4 +29,8 @@ class HomeController extends Controller
         }
 
     }
+
+    public function index1(){
+        return view('admin.postblog');
+    }
 }
