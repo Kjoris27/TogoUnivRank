@@ -10,7 +10,7 @@
                     </div>
                     <div class="card-body">
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action">
+                            <a href="{{ route('universities') }}" class="list-group-item list-group-item-action">
                                 <button type="button" class="btn btn-outline-dark btn-block">Overview</button>
                             </a>
                             <a href="#" class="list-group-item list-group-item-action">
