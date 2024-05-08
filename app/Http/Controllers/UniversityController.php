@@ -45,16 +45,28 @@ class UniversityController extends Controller
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ]);
 
+
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('university_images', 'public');
 
+            $imageName = time() . '.' . $request->image->extension();
 
+            $request->image->move(public_path('images'), $imageName);
         }
 
-        University::create($validatedData);
+        // Créer une nouvelle université avec les données validées
+        $university = new University;
+        $university->fill($validatedData);
+        // Stocker le chemin de l'image dans le modèle University si une image a été téléchargée
+        if (isset($imageName)) {
+            $university->image_path = 'images/' . $imageName;
+        }
+        // Enregistrer l'université dans la base de données
+        $university->save();
 
+        // Rediriger avec un message de succès
         return redirect()->route('universities')->with('success', 'University added successfully');
     }
+
 
 
     /**
