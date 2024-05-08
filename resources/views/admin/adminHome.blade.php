@@ -1,15 +1,29 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Admin Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in as Admin!") }}
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <hr>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        Admin Dashboard
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <button type="button" class="btn btn-outline-dark btn-block">Overview</button>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <button type="button" class="btn btn-secondary btn-block">Create University</button>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <button type="button" class="btn btn-info btn-block">Check Comments</button>
+                            </a>
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <button type="button" class="btn btn-dark btn-block">Check Statistics</button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
